@@ -419,15 +419,21 @@
         }
 
         //$fields['classes'] = ($isquestion && $favoritedview && @$post['userfavoriteq']) ? 'qa-q-favorited' : '';
+        $questions = $group['questions'];
+        $members = $group['members'] + 1;
         if ($group['type'] == 'PRIVATE') {
             $fields['classes'] = 'qa-q-closed';
-            $fields['content'] = '<b>' . qa_lang('group_lang/group_private_group') . ' | ' . 
-                $group['questions']. ' ' . qa_lang('group_lang/group_questions') . ' | ' .
-                $group['members']. ' ' . qa_lang('group_lang/group_members') . '</b>';
+            $fields['content'] = '<b>' . qa_lang('group_lang/group_private_group');
+            $fields['content'] .= ' | ' . $questions. ' ' . qa_lang($questions == 1 ? 'group_lang/group_question' : 'group_lang/group_questions');
+            $fields['content'] .= ' | ' . $members. ' ' . qa_lang($members == 1 ? 'group_lang/group_member' : 'group_lang/group_members');
+            $fields['content'] .= '</b>';
         }
-        else $fields['content'] = '<b>' . qa_lang('group_lang/group_public_group') . ' | ' . 
-            $group['questions']. ' ' . qa_lang('group_lang/group_questions') . ' | ' .
-            $group['members']. ' ' . qa_lang('group_lang/group_members') . '</b>';
+        else {
+            $fields['content'] = '<b>' . qa_lang('group_lang/group_public_group');
+            $fields['content'] .= ' | ' . $questions. ' ' . qa_lang($questions == 1 ? 'group_lang/group_question' : 'group_lang/group_questions');
+            $fields['content'] .= ' | ' . $members. ' ' . qa_lang($members == 1 ? 'group_lang/group_member' : 'group_lang/group_members');
+            $fields['content'] .= '</b>';
+        }
 
         if (isset($group['content'])) {
             $limit = 100;
