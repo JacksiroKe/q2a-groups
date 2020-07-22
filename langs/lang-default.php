@@ -15,6 +15,8 @@ if (!defined('QA_VERSION')) { // don't allow this page to be requested directly 
 		'group_create' => 'Create Group',
 		'group_home_here' => 'Home',
 		'group_general' => 'Group',
+		'group_members_nav' => 'Group Members',
+		'group_info_nav' => 'Group Info',
 		'group_a_create' => 'Create A Group',
 		'group_discover' => 'Discover Groups',
 		'group_home' => 'Groups Home',

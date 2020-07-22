@@ -21,7 +21,7 @@
     $userid = qa_get_logged_in_userid();
     $groupurl = 'groups/' . $groupid;
     
-    $html = '';
+    $html = '<center><h2> <a href="'.qa_path_html($groupurl . '/ask').'">'.qa_lang('group_lang/group_ask_here').'</a> | <a href="'.qa_path_html($groupurl . '/members').'">'.qa_lang('group_lang/group_members_nav').'</a> | <a href="'.qa_path_html($groupurl . '/info').'">'.qa_lang('group_lang/group_info_nav').'</a></h2></center>';
     
     $group = qa_db_select_with_pending( db_groups_selectspec($userid, $groupid) );
     if ($group['type'] == 'PRIVATE') {
